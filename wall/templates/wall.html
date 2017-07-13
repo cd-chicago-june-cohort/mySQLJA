@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WALL</title>
+</head>
+<body>
+    <h1>Coding Dojo Wall</h1>
+
+<form action="/logOut" method='post'>
+<button>LOGOUT</button>
+</form>
+
+ <h1>POST A MESSAGE</h1>
+    <form action='/post_message/<_id>' method='POST'>       
+        <input type="message" name="message" id="message"><br>
+        <input type="submit" value="Add">
+        <br><br>
+
+<h1>MESSAGES</h1>
+
+{% for message in all_messages: %}
+   <p>ID {{ message['id'] }}</p>
+   <p>First Name: {{ message['first_name'] }}</p>
+   <p>Last Name: {{ message['last_name'] }}</p>
+   <p>Message: {{ message['message'] }}</p>
+   <a href="/remove_message/{{ message['id']}}">DELETE</a>
+   <hr>
+{% endfor %}
+
+
+<h1>POST A COMMENT</h1>
+    <form action='/post_comment/<user_id>' method='POST'>       
+        <input type="comment" name="comment" id="comment"><br>
+        <input type="submit" value="Add">
+        <br><br>
+<h1>COMMENTS</h1>
+
+{% for comment in all_comments: %}
+   <p>ID {{ comment['id'] }}</p>
+   <p>First Name: {{ comment['first_name'] }}</p>
+   <p>Last Name: {{ comment['last_name'] }}</p>
+   <p>Message: {{ comment['message'] }}</p>
+   <a href="/remove_message/{{ message['id']}}">DELETE</a>
+   <hr>
+{% endfor %}
+
+</body>
+</html>

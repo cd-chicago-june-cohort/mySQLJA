@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Countries of the World</title>
+  </head>
+  <body>
+    <h1>Countries of the world</h1>
+    <form action="/" method="POST">
+        <input type="text" name="html_population_max" placeholder="Enter maximum population">
+        <input type="text" name="html_independence" placeholder="Enter maximum year of independence">
+        <input type="submit">
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Country Code</th>
+            <th>Population</th>
+            <th>Year of Independence</th>
+        </tr>
+        {% for country in country_list %}
+        <tr>
+            <td>{{country.name}}</td>
+            <td>{{country.code}}</td>
+            <td>{{country.population}}</td>
+            <td>{{country.indep_year}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </body>
+</html>

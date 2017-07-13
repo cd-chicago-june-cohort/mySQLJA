@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+ <!-- we can use the line below to see all of our data in our template -->
+<!--{{ all_friends }}-->
+<h1>These are all my friends!</h1>
+<form action="/friend" method="POST">
+        <input type="text" name="first_name" placeholder="firstname">
+        <input type="text" name="last_name" placeholder="lastname">
+        <input type="text" name="occupation" placeholder="occupation">
+        <input type="submit">
+    </form>
+<!-- with all the data we can then construct a more structured output -->
+{% for friend in all_friends: %}
+   <p>ID: {{ friend['id'] }}</p>
+   <p>First Name: {{ friend['first_name'] }}</p>
+   <p>Last Name: {{ friend['last_name'] }}</p>
+   <p>Occupation: {{ friend['occupation'] }}</p>
+
+   <form action="/remove_friend/{{ friend['id'] }}" method="POST">
+        <input type="submit" value="delete">
+    </form>
+
+   <hr>
+{% endfor %}
+  </form>
+</body>
+</html>
